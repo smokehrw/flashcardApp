@@ -1,5 +1,30 @@
-import { createContext } from "react";
+import { createContext, useReducer } from "react";
 
 export const DecksContext = createContext()
 
+export const decksReducer = (state, action) => {
+    switch (action.type) {
+        case 'SET_DECKS':
+            return {
+                decks: action.payload
+            }
+        case 'CREATE_DECK':
+            return {
+                decks: [action.payload, ...state.decks]
+            }
+        default:
+            return state
+    }
+}
 
+export const DecksContextProvider = ({ children }) => {
+    const [state, dispatch] = useReducer(decksReducer, {
+        decks: null
+    })
+
+    return (
+        <DecksContext.Provider value={{...state, dispatch}}>
+            { children }
+        </DecksContext.Provider>
+    )
+}

@@ -1,9 +1,12 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
+import { useDecksContext } from '../hooks/useDecksContext'
+
 import DeckDetails from '../components/DeckDetails'
 import DeckForm from '../components/DeckForm'
 
+
 const Home = () => {
-    const [decks, setDecks] = useState(null)
+    const {decks, dispatch} = useDecksContext()
 
     useEffect(() => {
         const fetchDecks = async () => {
@@ -11,7 +14,7 @@ const Home = () => {
             const json = await response.json()
 
             if (response.ok){
-                setDecks(json)
+                dispatch({type: 'SET_DECKS', payload: json})
             }
         }
 

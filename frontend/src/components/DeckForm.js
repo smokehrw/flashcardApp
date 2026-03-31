@@ -1,6 +1,9 @@
 import { useState } from "react"
+import { useDecksContext } from "../hooks/useDecksContext"
 
 const DeckForm = () => {
+    const {dispatch} = useDecksContext()
+
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
     const [error, setError] = useState(null)
@@ -28,6 +31,7 @@ const DeckForm = () => {
             setDescription('')
             setError(null)
             console.log('New deck created', json)
+            dispatch({type: 'CREATE_DECK', payload: json})
         }
     }
 
