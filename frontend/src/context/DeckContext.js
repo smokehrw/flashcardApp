@@ -2,6 +2,7 @@ import { createContext, useReducer } from "react";
 
 export const DecksContext = createContext()
 
+//action.payload IS the deck
 export const decksReducer = (state, action) => {
     switch (action.type) {
         case 'SET_DECKS':
@@ -11,6 +12,10 @@ export const decksReducer = (state, action) => {
         case 'CREATE_DECK':
             return {
                 decks: [action.payload, ...state.decks]
+            }
+        case 'DELETE_DECK':
+            return {
+                decks: state.decks.filter((d) => d._id !== action.payload._id)
             }
         default:
             return state
