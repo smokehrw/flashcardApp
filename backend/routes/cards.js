@@ -2,6 +2,7 @@ const express = require('express')
 const {
     getCards,
     getCard,
+    getCardsByDeck,
     createCard,
     updateCard,
     deleteCard
@@ -14,5 +15,6 @@ router.get('/:id', getCard)
 router.post('/', createCard)
 router.patch('/:id', updateCard)
 router.delete('/:id', deleteCard)
+router.get('/deck/:deckId', getCardsByDeck)
 
 module.exports = router

@@ -1,4 +1,5 @@
 const Card = require('../models/cardModel')
+const mongoose = require('mongoose')
 
 //GET ALL CARDS
 const getCards = async (req, res) => {
@@ -20,16 +21,28 @@ const getCard = async (req, res) => {
         return res.status(404).json({error: 'No such card'})
     }
 
-    res.status(200).json(deck)
+    res.status(200).json(card)
+}
+
+//GET CARDS BY DECK
+const getCardsByDeck = async (req, res) => {
+    const {deckId} = req.params
+    try {
+        const cards = await Card.find({ deckId })
+        res.status(200).json(cards)
+    } catch (error) {
+        res.status(400).json({ error: error.message })
+    }   
 }
 
 //CREATE NEW CARD
 const createCard = async (req, res) => {
-    const {deck, question, answer} = req.body
+    const {deckId, question, answer} = req.body
         try {
-            const card = await Card.create({deck, question, answer})
+            const card = await Card.create({deckId, question, answer})
             res.status(200).json(card)
         } catch (error) {
+            console.log("createCard Error")
             res.status(400).json({error: error.message})
         }
 }
@@ -71,6 +84,7 @@ const deleteCard = async (req, res) => {
 module.exports = {
     getCards,
     getCard,
+    getCardsByDeck,
     createCard,
     updateCard,
     deleteCard
