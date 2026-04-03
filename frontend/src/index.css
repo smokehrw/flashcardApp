@@ -1,13 +1,114 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  background-color: #091028;
+  font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 550;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+.navbar{
+  padding: 10px;
+}
+
+.home {
+  display: grid;
+  grid-template-rows: minmax(1920px, auto) 1fr;
+  grid-template-columns: 0.5fr 2fr 0.5fr;
+  grid-template-areas: 
+    "Lsidebar content Rsidebar"
+    "footer footer footer";
+}
+
+.sidebar-left {
+  grid-area: Lsidebar;
+}
+.sidebar-right {
+  grid-area: Rsidebar;
+}
+
+.footer {
+  grid-area: footer;
+}
+
+.content{
+  grid-area: content;
+}
+
+.all-decks-label{
+  padding-left: 20px;
+}
+
+.decks {
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 300px);
+  gap: 20px;
+}
+
+.decks > div {
+  position: relative;
+  padding: 20px;
+  background-color: #0B1738;
+  border: solid #32394D 0.5px;
+  aspect-ratio: 1 / 1;
+  min-width: 150px;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.decks > div:not(.new-deck-card)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 6px;
+  background: linear-gradient(135deg, #CB3CFF, #7E24FB);
+  transition: width 0.3s ease-out;
+}
+
+.decks > div:hover::before {
+  width: 100%;
+}
+
+.decks > div:hover::before {
+  height: 10px;
+}
+
+.new-deck-card {
+  display: flex;
+  justify-content: center;
+  place-items: center;
+  flex-direction: column;
+}
+
+#open-modal-btn{
+  padding: 5px;
+}
+
+#open-modal-btn:hover {
+  background-color: aquamarine;
+}
+
+.new-deck-card h2{
+  text-align: center;
 }

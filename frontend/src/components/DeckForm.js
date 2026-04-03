@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useDecksContext } from "../hooks/useDecksContext"
+import { useNavigate } from "react-router-dom"
 
 const DeckForm = () => {
     const {dispatch} = useDecksContext()
@@ -7,6 +8,8 @@ const DeckForm = () => {
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
     const [error, setError] = useState(null)
+
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -32,25 +35,20 @@ const DeckForm = () => {
             setError(null)
             console.log('New deck created', json)
             dispatch({type: 'CREATE_DECK', payload: json})
+
+            navigate(`/decks/${json._id}`)
         }
     }
 
     return (
-        <form className="create" onSubmit={handleSubmit}>
+        <form className="deck-form" onSubmit={handleSubmit}>
             <h3>Create a new Deck</h3>
+
             <label>Deck Title:</label>
-            <input
-            type="text"
-            onChange={(e) => setTitle(e.target.value)}
-            value={title}
-            />
+            <input type="text" onChange={(e) => setTitle(e.target.value)} value={title}/>
 
             <label>Deck description:</label>
-            <input
-            type="text"
-            onChange={(e) => setDescription(e.target.value)}
-            value={description}
-            />
+            <input type="text" onChange={(e) => setDescription(e.target.value)} value={description}/>
 
             <button>Create Deck</button>
         </form>

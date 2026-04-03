@@ -3,6 +3,7 @@ import { useDecksContext } from '../hooks/useDecksContext'
 
 import DeckDetails from '../components/DeckDetails'
 import DeckForm from '../components/DeckForm'
+import NewDeck from '../components/NewDeck'
 
 
 const Home = () => {
@@ -21,15 +22,20 @@ const Home = () => {
         fetchDecks()
     }, [])
     return (
-        <div>
-            <div className="home">
-                {decks && decks.map((deck) => (
-                    <DeckDetails key={deck._id} deck={deck}/>
-                ))}
+        <div className="home">
+            <div className="sidebar-left"/>
+            <div className="sidebar-right"/>
+            <div className="content">
+                <div className="all-decks-label"><h3>All Decks</h3></div>
+                <div className="decks">
+                    {decks && decks.map((deck) => (
+                        <DeckDetails key={deck._id} deck={deck}/>
+                    ))}
+                    <NewDeck/>
+                </div>
             </div>
-        <DeckForm/>
+            <div className="footer"><DeckForm/></div>
         </div>
-        
     )
 }
 

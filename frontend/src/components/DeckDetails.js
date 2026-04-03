@@ -25,6 +25,7 @@ const DeckDetails = ({deck}) => {
             <h4>{deck.title}</h4>
             <p>{deck.description}</p>
             <span onClick={handleDelete}>Delete</span>
+            <br/>
             <span onClick={handleClick}>View or Edit</span>
         </div>
     )
