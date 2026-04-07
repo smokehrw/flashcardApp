@@ -22,7 +22,7 @@ const Home = () => {
         fetchDecks()
     }, [])
     return (
-        <div className="home">
+        <div className="home-page">
             <div className="sidebar-left"/>
             <div className="sidebar-right"/>
             <div className="content">

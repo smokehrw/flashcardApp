@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import CardDetails from '../components/CardDetails'
+import NewCard from '../components/NewCard'
 
 const Decks = () => {
     const { id } = useParams()
     const [deck, setDeck] = useState(null)
     const [cards, setCards] = useState([])
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         const fetchDeck = async () => {
@@ -14,6 +16,7 @@ const Decks = () => {
 
             if (response.ok) {
                 setDeck(json)
+                setLoading(false)
             }
     }
         const fetchCards = async () => {
@@ -25,14 +28,14 @@ const Decks = () => {
             }
         } 
 
-
     fetchDeck()
     fetchCards()
     }, [id])
 
+    if (loading) return null;
 
     return (
-        <div className="home">
+        <div className="deck-page">
             <div className="sidebar-left"/>
             <div className="sidebar-right"/>
             <div className="content">
@@ -45,8 +48,8 @@ const Decks = () => {
                         )
                     }
                 </div>
-                <div className="add-card"><button id="add-card-btn">Add Card</button></div>
-                <div>
+                <NewCard setCards={setCards} deck={deck} setDeck={setDeck}/>
+                <div className="cards-container">
                 {cards.map(card => (
                     <CardDetails key={card._id} card={card}/>
                 ))}

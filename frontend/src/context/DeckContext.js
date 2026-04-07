@@ -13,6 +13,11 @@ export const decksReducer = (state, action) => {
             return {
                 decks: [action.payload, ...state.decks]
             }
+        case 'UPDATE_DECK':
+            return {
+                decks: (state.decks || []).map(d =>
+      d._id === action.payload._id ? action.payload : d)
+            }
         case 'DELETE_DECK':
             return {
                 decks: state.decks.filter((d) => d._id !== action.payload._id)
@@ -24,7 +29,7 @@ export const decksReducer = (state, action) => {
 
 export const DecksContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(decksReducer, {
-        decks: null
+        decks: []
     })
 
     return (
