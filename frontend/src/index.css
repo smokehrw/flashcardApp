@@ -50,7 +50,7 @@ code {
 
 .deck-page {
   display: grid;
-  grid-template-rows: minmax(1920px, auto) 1fr;
+  grid-template-rows: minmax(920px, auto) 1fr;
   grid-template-columns: 0.5fr 1fr 0.5fr;
   grid-template-areas: 
     "Lsidebar content Rsidebar"
@@ -65,6 +65,7 @@ code {
 }
 
 .footer {
+  padding: 100px;
   grid-area: footer;
 }
 
@@ -144,18 +145,18 @@ p{
 }
 
 .icon {
-
   cursor: pointer;
   font-size: 22px;
   margin-right: 10px;
   transition: 0.2s;
 }
+
 .icon.edit,
 .icon.delete{
   color: linear-gradient(135deg, #CB3CFF, #7E24FB);
 }
 
-.icon:hover {
+.icon:hover:not(.icon.none){
   transform: scale(1.2);
 }
 
@@ -165,6 +166,14 @@ p{
 
 .icon.delete:hover {
   color: #ff5252;
+}
+
+.icon.save {
+  color: #52ff61;
+}
+
+.icon.none {
+  color: #AEB9E1;
 }
 
 .deck-details{
@@ -201,12 +210,14 @@ p{
 }
 
 #add-card-btn,
-#edit-card-btn {
+#edit-card-btn,
+#study-btn {
   padding: 20px 0;
   background-color: #0B1738;
   border: 0;
   color: #AEB9E1;
   border-radius: 12px;
+  cursor: pointer;
 }
 
 button {
@@ -217,6 +228,16 @@ button {
 
 }
 
+#study-btn {
+  padding: 0 20px;
+  background: #CB3CFF;
+  color: white;
+}
+
+#study-btn:hover {
+  background-color: #7E24FB;
+}
+
 .cards-container{
   display: flex;
   flex-direction: column;
@@ -225,7 +246,63 @@ button {
 }
 
 .card-details {
-  padding: 10px;
+  padding: 20px;
   background-color: #0B1738;
   border-radius: 12px;
 }
+
+.edit-card-form{
+  display: flex;
+  flex-direction: row;
+  gap: 20px
+}
+
+.edit-card-form > div:not(.controls) {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.edit-card-form h4{
+  font-weight: bold;
+}
+
+.edit-card-form button {
+  border: none;
+  background: none;
+  margin-right: none;
+  text-align: right;
+}
+
+.error {
+  font-size: 12px;
+  padding-bottom: 10px;
+  color: red;
+}
+
+.edit-card-form > div:last-child {
+  margin-left: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.icon.save,
+.icon.none {
+  margin: 0;
+}
+
+textarea {
+  font: inherit;
+  font-weight: bold;
+  font-size: 16px;
+  resize: none;
+  width: 100%;
+  border-radius: 8px;
+  border: none;
+  background-color: #091028;
+  color: white;
+  padding: 5px;
+  overflow: hidden;
+}
+

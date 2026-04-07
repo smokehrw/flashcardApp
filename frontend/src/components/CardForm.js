@@ -8,12 +8,13 @@ const CardForm = ({setCards, closeModal}) => {
     const [answer, setAnswer] = useState('')
     const [error, setError] = useState(null)
 
-    console.log(id, question, answer)
-
-    const navigate = useNavigate();
-
     const handleSubmit = async (e) => {
         e.preventDefault()
+
+        if (!question.trim() || !answer.trim()) {
+            setError('Both Term and Definition are required')
+            return
+        }
 
         const card = {deckId: id, question, answer}
 
@@ -42,7 +43,7 @@ const CardForm = ({setCards, closeModal}) => {
     return (
         <form className="card-form" onSubmit={handleSubmit}>
             <h3>Create a new Card</h3>
-
+            {error && <div className="error">{error}</div>}
             <label>Question:</label>
             <input 
                 type="text" 
@@ -56,7 +57,6 @@ const CardForm = ({setCards, closeModal}) => {
                 onChange={(e) => setAnswer(e.target.value)} 
                 value={answer}
             />
-
             <button>Create Card</button>
         </form>
     )

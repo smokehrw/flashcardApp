@@ -14,6 +14,11 @@ const DeckForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
+        if (!title.trim() || !description.trim()) {
+            setError('Both title and description are required')
+            return
+        }
+
         const deck = {title, description}
 
         const response = await fetch('/api/decks', {
@@ -43,6 +48,7 @@ const DeckForm = () => {
     return (
         <form className="deck-form" onSubmit={handleSubmit}>
             <h3>Create a new Deck</h3>
+            {error && <div className="error">{error}</div>}
 
             <label>Deck Title:</label>
             <input type="text" onChange={(e) => setTitle(e.target.value)} value={title}/>

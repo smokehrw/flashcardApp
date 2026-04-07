@@ -1,10 +1,12 @@
 import CardForm from '../components/CardForm'
 import EditDeckForm from '../components/EditDeckForm'
 import { useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
 
-const NewCard = ({ setCards, setDeck, deck }) => {
+const NewCard = ({ setError, cards, setCards, setDeck, deck }) => {
   const cardDialogRef = useRef(null)
   const deckDialogRef = useRef(null)
+  const navigate = useNavigate()
 
   const openCardModal = () => {
     cardDialogRef.current.showModal()
@@ -24,6 +26,16 @@ const NewCard = ({ setCards, setDeck, deck }) => {
     deckDialogRef.current.close()
   }
 
+  const handleClick = () => {
+    if (cards.length < 2) {
+      setError('You need at least TWO cards to study a deck')
+      navigate(`/decks/${deck._id}`)
+    } else {
+      navigate(`/decks/${deck._id}/study`)
+      console.log("sending to study mode")    
+    }
+  }
+
   return (
     <div className="add-card">
       <button id="add-card-btn" onClick={openCardModal}>Add Card</button>
@@ -39,6 +51,8 @@ const NewCard = ({ setCards, setDeck, deck }) => {
         <EditDeckForm closeModal={() => closeDeckModal} deck={deck} setDeck={setDeck}/>
         <button id="close-modal-btn" onClick={closeDeckModal}>x</button>
       </dialog>
+
+      <button id="study-btn" onClick={handleClick}>Study</button>
     </div>
   )
 }

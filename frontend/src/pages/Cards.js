@@ -1,14 +1,17 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import EditCardForm from '../components/EditCardForm'
-import NewCard from '../components/NewCard'
+import { useNavigate } from 'react-router-dom'
+import FlashcardDetails from '../components/FlashcardDetails'
 
-const Deck = () => {
+const Cards = () => {
     const { id } = useParams()
     const [deck, setDeck] = useState(null)
     const [cards, setCards] = useState([])
     const [loading, setLoading] = useState(true)
-    const [error, setError] = useState(null)
+
+    const [currentIndex, setCurrentIndex] = useState(0)
+
+    const navigate = useNavigate()
 
     useEffect(() => {
         const fetchDeck = async () => {
@@ -33,35 +36,36 @@ const Deck = () => {
     fetchCards()
     }, [id])
 
-    if (loading) return null;
+    if (loading || cards.length === 0) return <p>No cards</p>;
+
+    const handleNext = () => {
+        setCurrentIndex(prev => Math.min(prev + 1, cards.length - 1))    
+    }
+
+    const handlePrev = () => {
+        setCurrentIndex(prev => Math.max(prev - 1, 0))
+    }
+
+    const currentCard = cards[currentIndex]
 
     return (
         <div className="deck-page">
             <div className="sidebar-left"/>
             <div className="sidebar-right"/>
             <div className="content">
-                <div className="deck">
-                    {deck && (
-                        <>
-                        <h2>{deck.title}</h2>
-                        <p>{deck.description}</p>
-                        {error && <div className="error">{error}</div>}
-                        </>
-                        )
-                    }
-                </div>
-                <NewCard setCards={setCards} deck={deck} setDeck={setDeck} cards={cards} setError={setError}/>
-                
-                <div className="cards-container">
-                    {cards.map(card => (
-                        <EditCardForm key={card._id} card={card} setCards={setCards}/>
-                    ))}
+                <div className="flashcard-container">
+                    <FlashcardDetails key={currentCard._id} card={currentCard}/>
+                    <span>
+                        {currentIndex + 1} / {cards.length}
+                    </span>
+                    <button disabled={currentIndex === 0} onClick={handlePrev}>LEFT</button>
+                    <button disabled={currentIndex === cards.length - 1} onClick={handleNext}>RIGHT</button>
+                    <button>Back</button>
                 </div>
             </div>
             <div className="footer"></div>
         </div>
-        
     )
 }
 
-export default Deck
+export default Cards

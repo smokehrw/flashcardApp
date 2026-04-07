@@ -1,6 +1,7 @@
 import { useState } from "react"
 
-const CardDetails = ({card}) => {
+const FlashcardDetails = ({card}) => {
+
     const [isFlipped, setFlipped] = useState(null)
 
     const handleFlip = () => {
@@ -8,10 +9,10 @@ const CardDetails = ({card}) => {
     }
 
     return (
-        <div className="card-details" onClick={handleFlip}>
+        <div className="flashcard-details" onClick={handleFlip}>
             <h3>{isFlipped ? card.answer : card.question}</h3>
         </div>
     )
 }
 
-export default CardDetails
+export default FlashcardDetails

@@ -54,14 +54,16 @@ const updateCard = async (req, res) => {
         return res.status(404).json({error: 'No such card'})
     }
 
-    const card = await Card.findOneAndUpdate({_id: id}, {
-        ...req.body
-    })
+    const card = await Card.findOneAndUpdate(    
+        { _id: id },
+        { ...req.body },
+        { new: true }
+    )   
 
-    if (card) {
+    if (!card) {
         return res.status(404).json({error: 'No such card'})
     }
-    res.status(200).json(deck)
+    res.status(200).json(card)
 }
 
 //DELETE A CARD
