@@ -44,17 +44,25 @@ const CardForm = ({setCards, closeModal}) => {
         <form className="card-form" onSubmit={handleSubmit}>
             <h3>Create a new Card</h3>
             {error && <div className="error">{error}</div>}
-            <label>Question:</label>
-            <input 
+            <h4>Term:</h4>
+            <textarea 
                 type="text" 
-                onChange={(e) => setQuestion(e.target.value)} 
+                onChange={(e) => {
+                    setQuestion(e.target.value)
+                    e.target.style.height = 'auto'
+                    e.target.style.height = e.target.scrollHeight + 'px'
+                    }}
                 value={question}
             />
 
-            <label>Answer:</label>
-            <input 
+            <h4>Definition:</h4>
+            <textarea 
                 type="text" 
-                onChange={(e) => setAnswer(e.target.value)} 
+                onChange={(e) => {
+                    setAnswer(e.target.value)
+                    e.target.style.height = 'auto'
+                    e.target.style.height = e.target.scrollHeight + 'px'
+                    }}
                 value={answer}
             />
             <button>Create Card</button>

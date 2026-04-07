@@ -50,11 +50,24 @@ const DeckForm = () => {
             <h3>Create a new Deck</h3>
             {error && <div className="error">{error}</div>}
 
-            <label>Deck Title:</label>
-            <input type="text" onChange={(e) => setTitle(e.target.value)} value={title}/>
+            <h4>Deck Title:</h4>
+            <textarea 
+                type="text" 
+                onChange={(e) => {
+                    setTitle(e.target.value)
+                    e.target.style.height = 'auto'
+                    e.target.style.height = e.target.scrollHeight + 'px'       
+                }}
+                value={title}/>
 
-            <label>Deck description:</label>
-            <input type="text" onChange={(e) => setDescription(e.target.value)} value={description}/>
+            <h4>Deck description:</h4>
+            <textarea 
+                type="text" 
+                onChange={(e) => {setDescription(e.target.value)
+                    e.target.style.height = 'auto'
+                    e.target.style.height = e.target.scrollHeight + 'px'
+                    }} 
+                value={description}/>
 
             <button>Create Deck</button>
         </form>

@@ -1,4 +1,5 @@
 const Deck = require('../models/deckModel')
+const Card = require('../models/cardModel')
 const mongoose = require('mongoose')
 
 //GET ALL DECKS
@@ -65,6 +66,8 @@ const deleteDeck = async (req, res) => {
     if (!deck) {
         return res.status(404).json({error: 'No such deck'})
     }
+
+    await Card.deleteMany({ deckId: id})
 
     res.status(200).json(deck)
 }

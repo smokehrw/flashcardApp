@@ -132,13 +132,16 @@ p{
   flex-direction: column;
 }
 
-#open-modal-btn{
-  padding: 5px;
+.add-deck-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#open-modal-btn {
+  padding: 10px 30px;
+  font-weight: bold;
 }
 
-#open-modal-btn:hover {
-  background-color: aquamarine;
-}
 
 .new-deck-card h2{
   text-align: center;
@@ -172,7 +175,8 @@ p{
   color: #52ff61;
 }
 
-.icon.none {
+.icon.none,
+.icon.delete {
   color: #AEB9E1;
 }
 
@@ -218,10 +222,6 @@ p{
   color: #AEB9E1;
   border-radius: 12px;
   cursor: pointer;
-}
-
-button {
-  font-family: inherit;
 }
 
 #edit-card-btn {
@@ -304,5 +304,115 @@ textarea {
   color: white;
   padding: 5px;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
+.flashcard-container {
+  display: flex;
+  flex-direction: column;
+}
+.extras {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.extras button{
+  border: none;
+  background: #AEB9E1;
+  color: #091028;
+  border-radius: 8px;
+}
+
+button{
+  font-family: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.extras button:disabled {
+  background: #0B1738;
+}
+
+.extras button:hover {
+  background: #30333e;
+}
+
+.flashcard-details {
+  background-color: #0B1738;
+  display: flex;
+  justify-content: center;
+  padding: 100px 0;
+  margin: 10px 0;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+.back-btn{
+  display: flex;
+  justify-content: end;
+}
+
+.back-btn button{
+  background: #CB3CFF;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 8px;
+}
+
+.back-btn button:hover{
+  background: #7E24FB;
+}
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+dialog h3, h4 {
+  color: white;
+}
+
+dialog textarea {
+  font-weight: normal;
+}
+
+dialog {
+  border-radius: 12px;
+  background-color: #0B1738;
+  border: none;
+}
+
+dialog button{
+  border: none;
+  padding: 10px 0;
+}
+
+.deck-form, .card-form {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+}
+
+.deck-form > button, 
+.card-form > button{
+  margin-top: 15px;
+}
+
+.deck-form > button:hover, 
+.card-form > button:hover,
+.add-deck-btn button:hover{
+  color: white;
+  background-color: #CB3CFF;
+}
+
+#close-modal-btn{
+  background: none;
+}
+
+.icon.close {
+  color: #AEB9E1;
+}

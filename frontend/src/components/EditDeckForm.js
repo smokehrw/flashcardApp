@@ -54,13 +54,25 @@ const EditDeckForm = ({setDeck, deck, closeModal}) => {
             <h3>Update Deck Details</h3>
             {error && <div className="error">{error}</div>}
 
-            <label>Deck Title:</label>
-            <input type="text" onChange={(e) => setTitle(e.target.value)} value={title}/>
+            <h4>Deck Title:</h4>
+            <textarea 
+                type="text" 
+                onChange={(e) => {
+                    setTitle(e.target.value)
+                    e.target.style.height = 'auto'
+                    e.target.style.height = e.target.scrollHeight + 'px'       
+                }}
+                value={title}/>
 
-            <label>Deck Description:</label>
-            <input type="text" onChange={(e) => setDescription(e.target.value)} value={description}/>
-
-            <button>Save</button>
+            <h4>Deck Description:</h4>
+            <textarea 
+                type="text" 
+                onChange={(e) => {setDescription(e.target.value)
+                    e.target.style.height = 'auto'
+                    e.target.style.height = e.target.scrollHeight + 'px'
+                    }} 
+                value={description}/>
+            <button type="submit">Save</button>
         </form>
     )
 }

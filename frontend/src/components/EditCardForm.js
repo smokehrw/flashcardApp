@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
-import { FaCheck, FaMinus } from 'react-icons/fa'
+import { FaTrash, FaCheck, FaMinus } from 'react-icons/fa'
 
 const EditCardForm = ({card, setCards}) => {
     const { id } = useParams()
@@ -37,6 +37,23 @@ const EditCardForm = ({card, setCards}) => {
             setError(null)
             console.log('Card Updated', json)
             setCards(prevCards => prevCards.map(c => c._id === json._id ? json : c))
+        }
+    }
+
+    const handleDelete = async () => {
+        const response = await fetch('/api/cards/' + card._id, {
+            method: 'DELETE',
+            })  
+
+        const json = await response.json()
+
+        if (!response.ok) {
+            console.log(json.error)
+            return
+        }
+
+        if (response.ok) {
+            setCards(prevCards => prevCards.filter(c => c._id !== card._id))
         }
     }
 
@@ -78,8 +95,9 @@ const EditCardForm = ({card, setCards}) => {
                             type="submit"
                             disabled={!hasChanged}
                         >
-                            {hasChanged ? <FaCheck className="icon save"/> : <FaMinus className="icon none"/>}
+                        {hasChanged ? <FaCheck className="icon save"/> : <FaMinus className="icon none"/>}
                         </button>
+                        <FaTrash className="icon delete" onClick={handleDelete}/>
                     </div>
             </form>
         </div>
