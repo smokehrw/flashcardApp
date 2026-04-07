@@ -1,5 +1,6 @@
 import { useDecksContext } from "../hooks/useDecksContext"
 import { useNavigate } from "react-router-dom"
+import { FaTrash} from 'react-icons/fa'
 
 const DeckDetails = ({deck}) => {
     const {dispatch} = useDecksContext()
@@ -21,12 +22,18 @@ const DeckDetails = ({deck}) => {
     }
 
     return (
-        <div className="deck-details">
-            <h4>{deck.title}</h4>
-            <p>{deck.description}</p>
-            <span onClick={handleDelete}>Delete</span>
-            <br/>
-            <span onClick={handleClick}>View or Edit</span>
+        <div className="deck-details" onClick={handleClick}>
+            <div>
+                <h4>{deck.title}</h4>
+            </div>
+            <div>
+                <p>{deck.description}</p>
+            </div>
+            <div className="card-actions">
+                <FaTrash className="icon delete" onClick={(e) => {
+                    e.stopPropagation()
+                    handleDelete()}}/>
+            </div>  
         </div>
     )
 }

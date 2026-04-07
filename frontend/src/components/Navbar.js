@@ -5,7 +5,7 @@ const Navbar = () => {
         <header>
             <div className="navbar">
                 <Link to="/">
-                    <h1>Flashcard App</h1>
+                    <h1 className="app-name">Flashcard App</h1>
                 </Link>
             </div>
         </header>

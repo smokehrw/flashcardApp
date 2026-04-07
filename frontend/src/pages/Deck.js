@@ -32,20 +32,25 @@ const Decks = () => {
 
 
     return (
-        <div>
-            <div className="deck">
-            {deck && (
-                <>
-                <h2>{deck.title}</h2>
-                <p>{deck.description}</p>
-                </>
-                )
-            }
-            </div>
-            <div>
+        <div className="home">
+            <div className="sidebar-left"/>
+            <div className="sidebar-right"/>
+            <div className="content">
+                <div className="deck">
+                    {deck && (
+                        <>
+                        <h2>{deck.title}</h2>
+                        <p>{deck.description}</p>
+                        </>
+                        )
+                    }
+                </div>
+                <div className="add-card"><button id="add-card-btn">Add Card</button></div>
+                <div>
                 {cards.map(card => (
                     <CardDetails key={card._id} card={card}/>
                 ))}
+                </div>
             </div>
         </div>
         

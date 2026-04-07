@@ -21,18 +21,28 @@ code {
     monospace;
 }
 
-::-webkit-scrollbar {
-  width: 8px;
-}
-
 .navbar{
   padding: 10px;
+  border-bottom: solid #0B1738 0.5px;
+}
+
+.app-name {
+  display: inline-block;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.app-name:hover {
+  transform: scale(1.05);
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 .home {
   display: grid;
   grid-template-rows: minmax(1920px, auto) 1fr;
-  grid-template-columns: 0.5fr 2fr 0.5fr;
+  grid-template-columns: 0.6fr 2fr 0.5fr;
   grid-template-areas: 
     "Lsidebar content Rsidebar"
     "footer footer footer";
@@ -60,19 +70,25 @@ code {
 .decks {
   padding: 10px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, 300px);
+  grid-template-columns: repeat(auto-fill, 250px);
   gap: 20px;
+  
 }
 
 .decks > div {
   position: relative;
-  padding: 20px;
+  padding: 10px;
   background-color: #0B1738;
-  border: solid #32394D 0.5px;
   aspect-ratio: 1 / 1;
-  min-width: 150px;
+  min-width: 0;
   border-radius: 15px;
   overflow: hidden;
+  cursor: pointer;
+}
+
+.decks p {
+  color: #AEB9E1;
+  font-size: 12px;
 }
 
 .decks > div:not(.new-deck-card)::before {
@@ -84,6 +100,7 @@ code {
   height: 6px;
   background: linear-gradient(135deg, #CB3CFF, #7E24FB);
   transition: width 0.3s ease-out;
+  
 }
 
 .decks > div:hover::before {
@@ -111,4 +128,52 @@ code {
 
 .new-deck-card h2{
   text-align: center;
+}
+
+.icon {
+
+  cursor: pointer;
+  font-size: 22px;
+  margin-right: 10px;
+  transition: 0.2s;
+}
+.icon.edit,
+.icon.delete{
+  color: linear-gradient(135deg, #CB3CFF, #7E24FB);
+}
+
+.icon:hover {
+  transform: scale(1.2);
+}
+
+.icon.edit:hover {
+  color: #4fc3f7;
+}
+
+.icon.delete:hover {
+  color: #ff5252;
+}
+
+.deck-details{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.deck-details p{
+  margin: 0;
+}
+
+.deck-details h4{
+  font-size: 0.9rem;
+  margin: 16px 0 0 0;
+  min-height: calc(1.2em * 2);
+  line-height: 1.2;
+}
+
+.card-actions {
+  margin-top: auto;
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 10px;
 }

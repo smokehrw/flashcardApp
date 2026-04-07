@@ -34,7 +34,6 @@ const Home = () => {
                     <NewDeck/>
                 </div>
             </div>
-            <div className="footer"><DeckForm/></div>
         </div>
     )
 }
