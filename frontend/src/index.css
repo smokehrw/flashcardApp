@@ -98,7 +98,7 @@ code {
 
 .decks p {
   color: #AEB9E1;
-  font-size: 12px;
+  font-size: 16px;
 }
 
 p{
@@ -191,7 +191,7 @@ p{
 }
 
 .deck-details h4{
-  font-size: 0.9rem;
+  font-size: 1rem;
   margin: 16px 0 0 0;
   min-height: calc(1.2em * 2);
   line-height: 1.2;
@@ -415,4 +415,9 @@ dialog button{
 
 .icon.close {
   color: #AEB9E1;
+}
+
+.add-card > button:hover:not(#study-btn) {
+  color: #091028;
+  background-color: #AEB9E1;
 }
