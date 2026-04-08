@@ -197,6 +197,21 @@ p{
   line-height: 1.2;
 }
 
+.deck-description,
+.deck-title{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.deck-title{
+  -webkit-line-clamp: 2;
+}
+
+.deck-description{
+  -webkit-line-clamp: 4; 
+}
+
 .card-actions {
   margin-top: auto;
   display: flex;

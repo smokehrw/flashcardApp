@@ -24,10 +24,10 @@ const DeckDetails = ({deck}) => {
     return (
         <div className="deck-details" onClick={handleClick}>
             <div>
-                <h4>{deck.title}</h4>
+                <h4 className="deck-title">{deck.title}</h4>
             </div>
             <div>
-                <p>{deck.description}</p>
+                <p className="deck-description">{deck.description}</p>
             </div>
             <div className="card-actions">
                 <FaTrash className="icon delete" onClick={(e) => {
