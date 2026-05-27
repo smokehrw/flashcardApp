@@ -2,6 +2,7 @@ import { use, useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa'
 import FlashcardDetails from '../components/FlashcardDetails'
+import Footer from '../components/Footer'
 
 const Cards = () => {
     const { id } = useParams()
@@ -75,7 +76,7 @@ const Cards = () => {
                 </div>
                 
             </div>
-            <div className="footer"></div>
+            <Footer />
         </div>
     )
 }

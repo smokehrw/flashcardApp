@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import EditCardForm from '../components/EditCardForm'
 import NewCard from '../components/NewCard'
+import Footer from '../components/Footer'
 
 const Deck = () => {
     const { id } = useParams()
@@ -58,7 +59,7 @@ const Deck = () => {
                     ))}
                 </div>
             </div>
-            <div className="footer"></div>
+            <Footer />
         </div>
         
     )

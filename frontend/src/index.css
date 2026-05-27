@@ -1,10 +1,9 @@
 body {
   margin: 0;
-  background-color: #091028;
-  font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  background-color: white;
+  font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: white;
 }
 
 a {
@@ -21,31 +20,9 @@ code {
     monospace;
 }
 
-.navbar{
-  padding: 10px;
-  border-bottom: solid #0B1738 0.5px;
-}
-
-.app-name {
-  display: inline-block;
-  cursor: pointer;
-  transition: 0.2s;
-}
-.app-name:hover {
-  transform: scale(1.05);
-}
 
 ::-webkit-scrollbar {
   display: none;
-}
-
-.home-page {
-  display: grid;
-  grid-template-rows: minmax(1920px, auto) 1fr;
-  grid-template-columns: 0.6fr 2fr 0.5fr;
-  grid-template-areas: 
-    "Lsidebar content Rsidebar"
-    "footer footer footer";
 }
 
 .deck-page {
@@ -65,78 +42,18 @@ code {
 }
 
 .footer {
-  padding: 100px;
+  padding: 40px;
   grid-area: footer;
+  background-color: #2F4858;
+  color: white;
 }
 
 .content{
   grid-area: content;
 }
 
-.all-decks-label{
-  padding-left: 20px;
-}
 
-.decks {
-  padding: 10px;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 250px);
-  gap: 20px;
-  
-}
 
-.decks > div {
-  position: relative;
-  padding: 10px;
-  background-color: #0B1738;
-  aspect-ratio: 1 / 1;
-  min-width: 0;
-  border-radius: 15px;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.decks p {
-  color: #AEB9E1;
-  font-size: 16px;
-}
-
-p{
-  color: #AEB9E1;
-}
-
-.decks > div:not(.new-deck-card)::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0%;
-  height: 6px;
-  background: linear-gradient(135deg, #CB3CFF, #7E24FB);
-  transition: width 0.3s ease-out;
-  
-}
-
-.decks > div:hover::before {
-  width: 100%;
-}
-
-.decks > div:hover::before {
-  height: 10px;
-}
-
-.new-deck-card {
-  display: flex;
-  justify-content: center;
-  place-items: center;
-  flex-direction: column;
-}
-
-.add-deck-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 #open-modal-btn {
   padding: 10px 30px;
   font-weight: bold;

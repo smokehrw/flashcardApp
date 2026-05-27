@@ -1,0 +1,17 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 0 20px;
+    background-color: white;
+}
+
+.app-name {
+    margin-right: auto;
+}
+
+h1 {
+    font-size: 32px;
+    font-weight: 900;
+}
+
