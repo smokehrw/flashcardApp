@@ -1,4 +1,4 @@
-import User from '../models/userModel.js'
+const User = require('../models/userModel')
 const mongoose = require('mongoose')
 
 const getUser = async (req, res) => {
@@ -50,5 +50,7 @@ const deleteUser = async (req, res) => {
 
 module.exports = {
     getUser,
-    registerUser
+    registerUser,
+    loginUser,
+    deleteUser
 }
