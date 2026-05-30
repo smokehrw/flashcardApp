@@ -62,7 +62,6 @@ const Cards = () => {
                 <h2>{deck.title}</h2>
                 <div className="flashcard-container">
                     <FlashcardDetails key={currentCard._id} card={currentCard}/>
-                    
                     <div className="extras">
                         
                         <button disabled={currentIndex === 0} onClick={handlePrev}><FaAngleLeft/></button>

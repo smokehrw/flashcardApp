@@ -4,6 +4,7 @@ import Navbar from './components/Navbar'
 import Deck from './pages/Deck'
 import Cards from './pages/Cards'
 import Footer from './components/Footer'
+import Login from './pages/Login'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <div className="pages">
         <Routes>
           <Route path="/" element={<Home />}/>
+          <Route path="/login" element={<Login />}/>
           <Route path="/decks/:id" element={<Deck />}/>
           <Route path="/decks/:id/study" element={<Cards />}/>
         </Routes>
