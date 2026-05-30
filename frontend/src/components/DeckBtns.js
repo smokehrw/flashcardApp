@@ -1,10 +1,10 @@
-import CardForm from '../components/CardForm'
-import EditDeckForm from '../components/EditDeckForm'
+import CardForm from './CardForm'
+import EditDeckForm from './EditDeckForm'
 import { useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { FaAngleLeft } from 'react-icons/fa'
 
-const NewCard = ({ setError, cards, setCards, setDeck, deck }) => {
+const DeckBtns = ({ setError, cards, setCards, setDeck, deck }) => {
   const cardDialogRef = useRef(null)
   const deckDialogRef = useRef(null)
   const navigate = useNavigate()
@@ -38,27 +38,26 @@ const NewCard = ({ setError, cards, setCards, setDeck, deck }) => {
   }
 
   return (
-    <div className="add-card">
-      <button id="add-card-btn" onClick={openCardModal}>Add Card</button>
+
+    <div className="deck-btn-container">
+      <button className="add-card-btn" onClick={openCardModal}>Add Card</button>
 
       <dialog ref={cardDialogRef}>
         <CardForm setCards={setCards} closeModal={() => closeCardModal}/>
         <button id="close-modal-btn" onClick={closeCardModal}><FaAngleLeft className='icon close'/></button>
       </dialog>
-
-      <button id="edit-card-btn" onClick={openDeckModal}>Edit Deck Details</button>
+      <button className="edit-deck-btn" onClick={openDeckModal}>Edit Deck Details</button>
 
       <dialog ref={deckDialogRef}>
         <div>
-
         </div>
         <EditDeckForm closeModal={() => closeDeckModal} deck={deck} setDeck={setDeck}/>
         <button id="close-modal-btn" onClick={closeDeckModal}><FaAngleLeft className='icon close'/></button>
       </dialog>
 
-      <button id="study-btn" onClick={handleClick}>Study</button>
+      <button className="study-btn" onClick={handleClick}>Study</button>
     </div>
   )
 }
 
-export default NewCard
+export default DeckBtns

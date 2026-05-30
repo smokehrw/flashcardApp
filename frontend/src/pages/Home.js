@@ -48,6 +48,7 @@ const Home = () => {
                 </div>
                     <div className="separator">
                         <div className="explore-decks-label"><h1>EXPLORE ALL FLASHCARDS</h1></div>
+                        
                     </div>
                     
                     <div className="decks-section">
@@ -64,7 +65,6 @@ const Home = () => {
                     </div>   
             </div>
             <div className="separator"/>
-            <Footer />
         </div>
     )
 }

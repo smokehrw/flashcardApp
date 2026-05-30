@@ -1,0 +1,25 @@
+.deck-details{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.deck-details p{
+  margin: 0;
+}
+
+.deck-details h4{
+  font-size: 1rem;
+  color: black;
+  margin: 16px 0;
+  min-height: calc(1.2em * 2);
+  line-height: 1.2;
+  border-bottom: 1px solid #E0E0E0;
+}
+
+.deck-description,
+.deck-title{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

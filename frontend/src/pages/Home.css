@@ -1,13 +1,11 @@
 .home-page {
-    margin: 0;
-    padding: 0;
     display: flex;
     justify-content: center;
     flex-direction: column;
-
 }
+
 .content {
-    width: minmax(1440px, 100%);
+    width: 100%;
     align-self: center;
     display: flex;
     flex-direction: column;
@@ -86,14 +84,7 @@
     box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.15);
 }
 
-.separator {
-    width: 100%;
-    height: 24px;
-    background-color: white;
-    display: flex;
-    align-items: center; 
-    justify-content: center;
-}
+
 
 
 

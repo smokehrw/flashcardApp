@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import EditCardForm from '../components/EditCardForm'
-import NewCard from '../components/NewCard'
+import DeckBtns from '../components/DeckBtns'
 import Footer from '../components/Footer'
+
+import './Deck.css'
 
 const Deck = () => {
     const { id } = useParams()
@@ -24,7 +26,7 @@ const Deck = () => {
         const fetchCards = async () => {
             const response = await fetch('/api/cards/deck/' + id)
             const json = await response.json()
-
+            //<NewCard setCards={setCards} deck={deck} setDeck={setDeck} cards={cards} setError={setError}/>
             if (response.ok) {
                 setCards(json)
             }
@@ -38,29 +40,32 @@ const Deck = () => {
 
     return (
         <div className="deck-page">
-            <div className="sidebar-left"/>
-            <div className="sidebar-right"/>
             <div className="content">
-                <div className="deck">
-                    {deck && (
-                        <>
-                        <h2>{deck.title}</h2>
-                        <p>{deck.description}</p>
-                        {error && <div className="error">{error}</div>}
-                        </>
-                        )
-                    }
-                </div>
-                <NewCard setCards={setCards} deck={deck} setDeck={setDeck} cards={cards} setError={setError}/>
-                
-                <div className="cards-container">
-                    {cards.map(card => (
-                        <EditCardForm key={card._id} card={card} setCards={setCards}/>
-                    ))}
+                <div className="deck-section">
+                    <div className="deck">
+                        <div className="deck-header">
+                            {deck && (
+                                <>
+                                <h2>{deck.title}</h2>
+                                <p>{deck.description}</p>
+                                {error && <div className="error">{error}</div>}
+                                </>
+                                )
+                            }
+                        </div>
+                        <DeckBtns setError={setError} cards={cards} setCards={setCards} setDeck={setDeck} deck={deck}/>
+                    </div>
+                    <div className="cards-container">
+                        <div className="cards">
+                            {cards.map(card => (
+                            <EditCardForm key={card._id} card={card} setCards={setCards}/>
+                            ))}
+                        </div>
+                    </div>
                 </div>
             </div>
-            <Footer />
         </div>
+        
         
     )
 }

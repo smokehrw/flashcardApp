@@ -25,13 +25,15 @@ code {
   display: none;
 }
 
-.deck-page {
-  display: grid;
-  grid-template-rows: minmax(920px, auto) 1fr;
-  grid-template-columns: 0.5fr 1fr 0.5fr;
-  grid-template-areas: 
-    "Lsidebar content Rsidebar"
-    "footer footer footer";
+
+
+.separator {
+    width: 100%;
+    height: 24px;
+    background-color: white;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
 }
 
 .sidebar-left {
@@ -97,30 +99,6 @@ code {
   color: #AEB9E1;
 }
 
-.deck-details{
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.deck-details p{
-  margin: 0;
-}
-
-.deck-details h4{
-  font-size: 1rem;
-  margin: 16px 0 0 0;
-  min-height: calc(1.2em * 2);
-  line-height: 1.2;
-}
-
-.deck-description,
-.deck-title{
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
 .deck-title{
   -webkit-line-clamp: 2;
 }
@@ -129,12 +107,7 @@ code {
   -webkit-line-clamp: 4; 
 }
 
-.card-actions {
-  margin-top: auto;
-  display: flex;
-  justify-content: flex-end;
-  padding-bottom: 10px;
-}
+
 
 .add-card {
   display: flex;
@@ -170,18 +143,9 @@ code {
   background-color: #7E24FB;
 }
 
-.cards-container{
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 10px;
-}
 
-.card-details {
-  padding: 20px;
-  background-color: #0B1738;
-  border-radius: 12px;
-}
+
+
 
 .edit-card-form{
   display: flex;
@@ -224,20 +188,7 @@ code {
   margin: 0;
 }
 
-textarea {
-  font: inherit;
-  font-weight: bold;
-  font-size: 16px;
-  resize: none;
-  width: 100%;
-  border-radius: 8px;
-  border: none;
-  background-color: #091028;
-  color: white;
-  padding: 5px;
-  overflow: hidden;
-  box-sizing: border-box;
-}
+
 
 .flashcard-container {
   display: flex;
