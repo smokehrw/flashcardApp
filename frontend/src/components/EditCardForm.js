@@ -91,10 +91,7 @@ const EditCardForm = ({card, setCards}) => {
                         />
                     </div>
                     <div className="controls">
-                        <button 
-                            type="submit"
-                            disabled={!hasChanged}
-                        >
+                        <button className="save-placeholder" type="submit" disabled={!hasChanged}>
                         {hasChanged ? <FaCheck className="icon save"/> : <FaMinus className="icon none"/>}
                         </button>
                         <FaTrash className="icon delete" onClick={handleDelete}/>

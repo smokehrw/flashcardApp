@@ -1,18 +1,24 @@
-import { useState } from "react"
+import { useState } from "react";
 
-const FlashcardDetails = ({card}) => {
-
-    const [isFlipped, setFlipped] = useState(null)
-
-    const handleFlip = () => {
-        setFlipped(!isFlipped)
-    }
+const FlashcardDetails = ({ card }) => {
+    const [isFlipped, setFlipped] = useState(false);
 
     return (
-        <div className="flashcard-details" onClick={handleFlip}>
-            <h3>{isFlipped ? card.answer : card.question}</h3>
-        </div>
-    )
-}
+        <div
+            className={`flashcard-details ${isFlipped ? "flipped" : ""}`}
+            onClick={() => setFlipped(!isFlipped)}
+        >
+            <div className="flashcard-inner">
+                <div className="flashcard-front">
+                    <h2>{card.question}</h2>
+                </div>
 
-export default FlashcardDetails
+                <div className="flashcard-back">
+                    <h2>{card.answer}</h2>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default FlashcardDetails;

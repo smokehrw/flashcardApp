@@ -4,6 +4,9 @@ import { FaAngleLeft, FaAngleRight } from 'react-icons/fa'
 import FlashcardDetails from '../components/FlashcardDetails'
 import Footer from '../components/Footer'
 
+
+import './Cards.css'
+
 const Cards = () => {
     const { id } = useParams()
     const [deck, setDeck] = useState(null)
@@ -54,10 +57,8 @@ const Cards = () => {
     const currentCard = cards[currentIndex]
 
     return (
-        <div className="deck-page">
-            <div className="sidebar-left"/>
-            <div className="sidebar-right"/>
-            <div className="content">
+        <div className="flashcard-page">
+            <div className="flashcard-section">
                 <h2>{deck.title}</h2>
                 <div className="flashcard-container">
                     <FlashcardDetails key={currentCard._id} card={currentCard}/>
@@ -65,9 +66,10 @@ const Cards = () => {
                     <div className="extras">
                         
                         <button disabled={currentIndex === 0} onClick={handlePrev}><FaAngleLeft/></button>
-                        <span>
-                        {currentIndex + 1} / {cards.length}
-                        </span>
+
+                        <div className="counter">
+                            {currentIndex + 1} / {cards.length}
+                        </div>
                         <button disabled={currentIndex === cards.length - 1} onClick={handleNext}><FaAngleRight/></button>
                     </div>
                     <div className="back-btn">
@@ -76,7 +78,6 @@ const Cards = () => {
                 </div>
                 
             </div>
-            <Footer />
         </div>
     )
 }

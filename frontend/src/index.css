@@ -97,6 +97,11 @@ code {
 .icon.none,
 .icon.delete {
   color: #AEB9E1;
+  
+}
+
+.save-placeholder {
+  box-shadow: none;
 }
 
 .deck-title{
@@ -144,7 +149,15 @@ code {
 }
 
 
+button {   
+    transition: all 0.25s ease;
+    box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.25);
+}
 
+button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
 
 
 .edit-card-form{
@@ -188,24 +201,6 @@ code {
   margin: 0;
 }
 
-
-
-.flashcard-container {
-  display: flex;
-  flex-direction: column;
-}
-.extras {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
-.extras button{
-  border: none;
-  background: #AEB9E1;
-  color: #091028;
-  border-radius: 8px;
-}
-
 button{
   font-family: inherit;
   display: flex;
@@ -217,39 +212,7 @@ button{
   cursor: pointer;
 }
 
-.extras button:disabled {
-  background: #0B1738;
-}
 
-.extras button:hover {
-  background: #30333e;
-}
-
-.flashcard-details {
-  background-color: #0B1738;
-  display: flex;
-  justify-content: center;
-  padding: 100px 0;
-  margin: 10px 0;
-  cursor: pointer;
-  border-radius: 15px;
-}
-
-.back-btn{
-  display: flex;
-  justify-content: end;
-}
-
-.back-btn button{
-  background: #CB3CFF;
-  color: white;
-  padding: 5px 10px;
-  border-radius: 8px;
-}
-
-.back-btn button:hover{
-  background: #7E24FB;
-}
 
 dialog::backdrop {
   background-color: rgba(0, 0, 0, 0.7);
