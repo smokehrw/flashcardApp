@@ -219,16 +219,24 @@ dialog::backdrop {
 }
 
 dialog h3, h4 {
-  color: white;
+  color:black;
+  margin: 10px 0px;
 }
 
+dialog h3 {
+  font-weight: 700;
+}
+
+dialog h4 {
+  font-weight: 600;
+} 
 dialog textarea {
   font-weight: normal;
 }
 
 dialog {
   border-radius: 12px;
-  background-color: #0B1738;
+  background-color: white;
   border: none;
 }
 
@@ -252,11 +260,16 @@ dialog button{
 .card-form > button:hover,
 .add-deck-btn button:hover{
   color: white;
-  background-color: #CB3CFF;
+  background-color: #2F4858;
 }
 
 #close-modal-btn{
-  background: none;
+  margin-top: 15px;
+  background: #BED3FF;
+  color: #4E86FF;
+  padding: 5px 10px;
+  border-radius: 16px;
+  border: #4E86FF solid 2px;
 }
 
 .icon.close {

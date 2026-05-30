@@ -15,3 +15,13 @@ h1 {
     font-weight: 900;
 }
 
+.navbar a:not(.app-name) {
+    border-bottom: 1.5px solid transparent;
+    transition: border-color 0.3s ease;
+    
+}
+
+.navbar a:not(.app-name):hover {
+    border-bottom-color: black;
+    box-shadow: 0px 0.5px 0px 0px rgba(0,0,0,0.15);
+}

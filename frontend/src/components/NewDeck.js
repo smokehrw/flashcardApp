@@ -27,7 +27,7 @@ const NewDeck = () => {
 
             <dialog ref={dialogRef} onClick={(e) => {e.stopPropagation()}}>
                 <DeckForm/>
-                <button id="close-modal-btn" onClick={closeModal}><FaAngleLeft className='icon close'/></button>
+                <button id="close-modal-btn" onClick={closeModal}>Back</button>
             </dialog>
         </div>
     )

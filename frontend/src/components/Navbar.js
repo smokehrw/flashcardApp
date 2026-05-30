@@ -9,10 +9,10 @@ const Navbar = () => {
                 <Link className="app-name" to="/">
                     <h1 className="app-name">FLASH.CD</h1>
                 </Link>
-                <a href="/login">Sign In</a>
-                <a href="/login">Explore</a>
-                <a href="/login">Settings</a>
-                <a href="/login">Account</a>
+                <Link to="/login">Sign In</Link>
+                <Link to="/">Explore</Link>
+                <Link to="/settings">Settings</Link>
+                <Link to="/account">Account</Link>
             </div>
         </header>
     )

@@ -44,7 +44,7 @@ const DeckBtns = ({ setError, cards, setCards, setDeck, deck }) => {
 
       <dialog ref={cardDialogRef}>
         <CardForm setCards={setCards} closeModal={() => closeCardModal}/>
-        <button id="close-modal-btn" onClick={closeCardModal}><FaAngleLeft className='icon close'/></button>
+        <button id="close-modal-btn" onClick={closeCardModal}>Back</button>
       </dialog>
       <button className="edit-deck-btn" onClick={openDeckModal}>Edit Deck Details</button>
 
@@ -52,7 +52,7 @@ const DeckBtns = ({ setError, cards, setCards, setDeck, deck }) => {
         <div>
         </div>
         <EditDeckForm closeModal={() => closeDeckModal} deck={deck} setDeck={setDeck}/>
-        <button id="close-modal-btn" onClick={closeDeckModal}><FaAngleLeft className='icon close'/></button>
+        <button id="close-modal-btn" onClick={closeDeckModal}>Back</button>
       </dialog>
 
       <button className="study-btn" onClick={handleClick}>Study</button>
